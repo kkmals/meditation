@@ -1,0 +1,369 @@
+.reef-container {
+  padding: 2rem;
+  color: #e0f2fe;
+  min-height: 100vh;
+}
+
+.reef-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.reef-header h2 {
+  font-size: 2rem;
+  color: #7dd3fc;
+  margin-bottom: 1.5rem;
+}
+
+.reef-stats {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(30, 58, 95, 0.5);
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(125, 211, 252, 0.3);
+  min-width: 100px;
+}
+
+.stat-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #7dd3fc;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: #bae6fd;
+  margin-top: 0.25rem;
+}
+
+.empty-reef {
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.empty-reef-icon {
+  font-size: 5rem;
+  margin-bottom: 1rem;
+}
+
+.empty-reef h3 {
+  color: #7dd3fc;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.empty-reef p {
+  color: #bae6fd;
+  font-size: 1.1rem;
+}
+
+.reef-ocean {
+  position: relative;
+  background: linear-gradient(
+    to bottom,
+    #0c4a6e 0%,
+    #075985 20%,
+    #0369a1 40%,
+    #0284c7 60%,
+    #0ea5e9 80%,
+    #38bdf8 100%
+  );
+  border-radius: 20px;
+  overflow: hidden;
+  min-height: 500px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.ocean-surface {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: linear-gradient(to bottom, rgba(56, 189, 248, 0.3), transparent);
+  animation: wave 3s ease-in-out infinite;
+}
+
+@keyframes wave {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.reef-bed {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  background: radial-gradient(ellipse at bottom, rgba(20, 83, 124, 0.3), transparent);
+}
+
+.coral {
+  position: absolute;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.coral.small {
+  width: 30px;
+  height: 30px;
+}
+
+.coral.medium {
+  width: 45px;
+  height: 45px;
+}
+
+.coral.large {
+  width: 60px;
+  height: 60px;
+}
+
+.coral.healthy {
+  animation: pulse 3s ease-in-out infinite;
+}
+
+.coral.bleached {
+  opacity: 0.4;
+  filter: grayscale(80%);
+}
+
+.coral:hover {
+  transform: scale(1.2);
+  z-index: 10;
+}
+
+.coral.selected {
+  transform: scale(1.3);
+  box-shadow: 0 0 20px rgba(125, 211, 252, 0.8);
+  z-index: 20;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  }
+  50% {
+    box-shadow: 0 4px 25px rgba(14, 165, 233, 0.5);
+  }
+}
+
+.coral-shape {
+  width: 70%;
+  height: 70%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.3), transparent);
+  border-radius: 50%;
+}
+
+.coral-tooltip {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(12, 74, 110, 0.95);
+  padding: 0.75rem;
+  border-radius: 8px;
+  white-space: nowrap;
+  border: 1px solid rgba(125, 211, 252, 0.5);
+  backdrop-filter: blur(10px);
+  z-index: 100;
+  pointer-events: none;
+}
+
+.coral-tooltip strong {
+  display: block;
+  color: #7dd3fc;
+  margin-bottom: 0.25rem;
+}
+
+.coral-tooltip p {
+  margin: 0.25rem 0;
+  font-size: 0.9rem;
+}
+
+.coral-tooltip small {
+  color: #93c5fd;
+  font-size: 0.8rem;
+}
+
+.reef-decoration.bubble {
+  position: absolute;
+  bottom: -10px;
+  width: 10px;
+  height: 10px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.6), transparent);
+  border-radius: 50%;
+  animation: rise 6s ease-in infinite;
+}
+
+@keyframes rise {
+  0% {
+    bottom: -10px;
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.6;
+  }
+  90% {
+    opacity: 0.6;
+  }
+  100% {
+    bottom: 100%;
+    opacity: 0;
+  }
+}
+
+.zone-indicators {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.zone-indicators .zone {
+  background: rgba(12, 74, 110, 0.7);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  border-left: 3px solid;
+  backdrop-filter: blur(10px);
+}
+
+.zone.shallow {
+  border-color: #38bdf8;
+}
+
+.zone.mid {
+  border-color: #0ea5e9;
+}
+
+.zone.deep {
+  border-color: #0369a1;
+}
+
+.coral-details-panel {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background: rgba(12, 74, 110, 0.95);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid rgba(125, 211, 252, 0.5);
+  backdrop-filter: blur(10px);
+  min-width: 300px;
+  max-width: 400px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.close-details {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background: none;
+  border: none;
+  color: #bae6fd;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  line-height: 1;
+  transition: color 0.2s;
+}
+
+.close-details:hover {
+  color: #7dd3fc;
+}
+
+.coral-details-panel h3 {
+  color: #7dd3fc;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(125, 211, 252, 0.2);
+}
+
+.detail-row:last-of-type {
+  border-bottom: none;
+}
+
+.detail-row span:first-child {
+  color: #bae6fd;
+  font-weight: 500;
+}
+
+.detail-row span:last-child {
+  color: #e0f2fe;
+}
+
+.status-healthy {
+  color: #34d399 !important;
+  font-weight: 600;
+}
+
+.status-bleached {
+  color: #9ca3af !important;
+}
+
+.zone-badge {
+  background: rgba(14, 165, 233, 0.3);
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  text-transform: capitalize;
+}
+
+.coral-description {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(125, 211, 252, 0.2);
+  color: #bae6fd;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .reef-stats {
+    gap: 1rem;
+  }
+
+  .stat {
+    min-width: 80px;
+    padding: 0.75rem 1rem;
+  }
+
+  .coral-details-panel {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-radius: 12px 12px 0 0;
+    max-width: none;
+  }
+}

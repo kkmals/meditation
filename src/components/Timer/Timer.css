@@ -1,0 +1,258 @@
+.timer-container {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 2rem;
+  color: #e0f2fe;
+}
+
+.timer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.timer-header h2 {
+  font-size: 1.8rem;
+  color: #7dd3fc;
+  margin: 0;
+}
+
+.stats-mini {
+  display: flex;
+  gap: 1rem;
+  font-size: 1rem;
+}
+
+.pearl-count,
+.streak-count {
+  background: rgba(30, 58, 95, 0.5);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+}
+
+.motivational-message {
+  background: linear-gradient(135deg, rgba(14, 165, 233, 0.3), rgba(6, 182, 212, 0.3));
+  padding: 1rem;
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  border: 1px solid rgba(125, 211, 252, 0.3);
+  animation: slideIn 0.5s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.timer-setup {
+  text-align: center;
+}
+
+.timer-setup h3 {
+  color: #bae6fd;
+  margin-bottom: 1.5rem;
+}
+
+.duration-buttons {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.duration-btn {
+  background: rgba(30, 58, 95, 0.5);
+  border: 2px solid rgba(125, 211, 252, 0.3);
+  color: #e0f2fe;
+  padding: 1rem;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.duration-btn:hover {
+  background: rgba(30, 58, 95, 0.8);
+  border-color: #7dd3fc;
+  transform: translateY(-2px);
+}
+
+.duration-btn.active {
+  background: linear-gradient(135deg, #0ea5e9, #06b6d4);
+  border-color: #7dd3fc;
+  box-shadow: 0 4px 20px rgba(14, 165, 233, 0.4);
+}
+
+.start-btn,
+.restart-btn {
+  background: linear-gradient(135deg, #0ea5e9, #06b6d4);
+  border: none;
+  color: white;
+  padding: 1rem 2.5rem;
+  border-radius: 30px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(14, 165, 233, 0.3);
+}
+
+.start-btn:hover,
+.restart-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(14, 165, 233, 0.5);
+}
+
+.timer-active {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.coral-preview {
+  text-align: center;
+}
+
+.coral-growing {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin: 0 auto 1rem;
+  position: relative;
+  overflow: hidden;
+  border: 3px solid rgba(125, 211, 252, 0.3);
+  box-shadow: 0 0 30px rgba(14, 165, 233, 0.3);
+}
+
+.growth-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(to top, rgba(255, 255, 255, 0.3), transparent);
+  transition: height 1s ease;
+}
+
+.coral-growing.stage-1 {
+  opacity: 0.4;
+}
+
+.coral-growing.stage-2 {
+  opacity: 0.6;
+}
+
+.coral-growing.stage-3 {
+  opacity: 0.8;
+}
+
+.coral-growing.stage-4 {
+  opacity: 1;
+  animation: glow 2s ease-in-out infinite;
+}
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 30px rgba(14, 165, 233, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 50px rgba(14, 165, 233, 0.6);
+  }
+}
+
+.coral-name {
+  color: #bae6fd;
+  font-size: 1.1rem;
+}
+
+.timer-display {
+  position: relative;
+  width: 200px;
+  height: 200px;
+}
+
+.progress-ring {
+  transform: rotate(-90deg);
+}
+
+.progress-ring-fill {
+  transition: stroke-dashoffset 1s linear;
+}
+
+.time-remaining {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3rem;
+  font-weight: 700;
+  color: #e0f2fe;
+  text-shadow: 0 0 10px rgba(14, 165, 233, 0.5);
+}
+
+.timer-controls {
+  display: flex;
+  gap: 1rem;
+}
+
+.control-btn {
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.control-btn.pause,
+.control-btn.resume {
+  background: linear-gradient(135deg, #f59e0b, #f97316);
+  color: white;
+}
+
+.control-btn.stop {
+  background: rgba(239, 68, 68, 0.8);
+  color: white;
+}
+
+.control-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.timer-complete,
+.timer-failed {
+  text-align: center;
+  padding: 2rem;
+}
+
+.success-icon,
+.failed-icon {
+  font-size: 5rem;
+  margin-bottom: 1rem;
+}
+
+.timer-complete h3,
+.timer-failed h3 {
+  color: #7dd3fc;
+  font-size: 2rem;
+  margin: 1rem 0;
+}
+
+.timer-complete p,
+.timer-failed p {
+  color: #bae6fd;
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
