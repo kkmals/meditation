@@ -91,8 +91,11 @@
 }
 
 @media (min-width: 768px) {
+  .app-header {
+    padding-top: 5rem; /* Space for top navigation on desktop */
+  }
+
   .app-main {
-    padding-top: 80px; /* Space for top navigation on desktop */
     padding-bottom: 2rem;
   }
 
