@@ -48,7 +48,7 @@
   text-align: center;
   padding: 2rem 1rem 1rem;
   position: relative;
-  z-index: 1;
+  z-index: 999; /* Below navigation but visible */
 }
 
 .app-title {
@@ -92,7 +92,8 @@
 
 @media (min-width: 768px) {
   .app-header {
-    padding-top: 5rem; /* Space for top navigation on desktop */
+    padding-top: 7rem; /* More space for top navigation on desktop */
+    margin-bottom: 1rem;
   }
 
   .app-main {
